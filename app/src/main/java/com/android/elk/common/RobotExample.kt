@@ -15,14 +15,14 @@ class MainView  {
 
     }
 
-    infix fun goat(init: MainView.() -> Unit) = robotics(init)
+    infix fun goat(init: MainView.() -> Unit) = screen(init)
 
 }
 
 
-fun verifyNavigation(robot: MainViewResult.() -> Unit) =
+fun verifyNavigation(init: MainViewResult.() -> Unit) =
 
-    MainViewResult().apply { robot() }
+    MainViewResult().apply { init() }
 
 class MainViewResult : Base() {
 
@@ -30,29 +30,26 @@ class MainViewResult : Base() {
 
     }
 
-    infix fun thenVerify(view: MainView.()-> Unit) = robot(MainView(), view)
+    infix fun thenVerify(view: MainView.()-> Unit) = screen(MainView(), view)
 
 }
 class Head(): Base() {
 
-    fun head(init: Head.() -> Unit) = robot(Head(), init)
+    fun head(init: Head.() -> Unit) = screen(Head(), init)
 
-    fun goat(init: MainView.() -> Unit) = robotics(init)
+    fun goat(init: MainView.() -> Unit) = screen(init)
 }
 
-fun goat(init: MainView.() -> Unit) = robotics(init)
+fun goat(init: MainView.() -> Unit) = screen(init)
 
 open class Base {
-    fun <T> robot(tag: T, init: T.() -> Unit): T {
+    fun <T> screen(tag: T, init: T.() -> Unit): T {
         tag.init()
         return tag
     }
 
-    fun <T> robotics(init: T.() -> Unit): T {
-        return init as T
-    }
 }
 
-fun <T> robotics(init: T.() -> Unit): T {
+fun <T> screen(init: T.() -> Unit): T {
     return init as T
 }
