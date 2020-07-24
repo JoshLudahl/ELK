@@ -3,7 +3,7 @@ package com.android.elk.common
 
 /**
  * Lambda for driving navigation. Example: navigate { toLoadboardTab() } will navigate to the
- * LoadBoard tab.
+ * LoadBoard tab. Includes variable generic notation for applying a block of code when creating a single instance across several robots (Views)
  */
 class MainView  {
 
@@ -12,31 +12,27 @@ class MainView  {
     }
 
     fun doThisFirst() {
-
     }
 
     infix fun goat(init: MainView.() -> Unit) = screen(init)
 
 }
 
-
 fun verifyNavigation(init: MainViewResult.() -> Unit) =
-
     MainViewResult().apply { init() }
 
 class MainViewResult : Base() {
 
     fun doSomething() {
-
     }
 
     infix fun thenVerify(view: MainView.()-> Unit) = screen(MainView(), view)
 
 }
+
 class Head(): Base() {
 
     fun head(init: Head.() -> Unit) = screen(Head(), init)
-
     fun goat(init: MainView.() -> Unit) = screen(init)
 }
 
@@ -47,9 +43,6 @@ open class Base {
         tag.init()
         return tag
     }
-
 }
 
-fun <T> screen(init: T.() -> Unit): T {
-    return init as T
-}
+fun <T> screen(init: T.() -> Unit): T = init as T
