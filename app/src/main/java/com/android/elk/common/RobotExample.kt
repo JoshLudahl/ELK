@@ -1,5 +1,11 @@
 package com.android.elk.common
 
+import android.view.View
+import android.widget.TextView
+import androidx.test.espresso.matcher.BoundedMatcher
+import org.hamcrest.Description
+import org.hamcrest.Matcher
+
 
 /**
  * Lambda for driving navigation. Example: navigate { toLoadboardTab() } will navigate to the
@@ -46,3 +52,69 @@ open class Base {
 }
 
 fun <T> screen(init: T.() -> Unit): T = init as T
+
+fun <T> screen(obj: T, init: T.() -> Unit): T = obj.apply { init() }
+
+inline fun <T> T.screen(block: T.() -> Unit): T {
+    block()
+    return this
+}
+
+interface Nav {
+    /**
+     * Main navigation entry point
+     */
+    fun navigate(robot: Bot.() -> Unit) = screen(Bot(), robot)
+
+    /**
+     * Generic function that checks if the specified id is even present prior to performing actions against it
+     * Obj objects are bound to Bound.
+     */
+    fun <T : Bound> screen(obj: T, init: T.() -> Unit): T {
+        view(id of view) verifyIt isDisplayed
+        return obj.apply { init() }
+    }
+
+}
+// as class
+class RegexTextViewMatcher(private val pattern: String) : BoundedMatcher<View, TextView>(TextView::class.java) {
+
+    override fun describeTo(description: Description?) {
+        description?.appendText("Checking the matcher on received view: with pattern=$regex")
+    }
+
+    override fun matchesSafely(item: TextView?) =
+        item?.text?.let {
+            pattern
+                .toRegex()
+                .toPattern()
+                .matcher(it)
+                .matches()
+        } ?: false
+}
+
+private fun withPattern(regex: String): Matcher<View> = RegexTextViewMatcher(regex)
+
+onView(withId(R.id.element_id)).check(matches(withPattern("\\+d")))
+
+
+//As function
+fun regexMatcher(pattern: String): Matcher<View> =
+    object : BoundedMatcher<View, TextView>(TextView::class.java) {
+
+        override fun describeTo(description: Description?) {
+            description?.appendText("Checking the matcher on received view: with pattern=$pattern")
+        }
+
+        override fun matchesSafely(item: TextView): Boolean {
+            return item?.text?.let {
+                pattern
+                    .toRegex()
+                    .toPattern()
+                    .matcher(it)
+                    .matches()
+            } ?: false
+        }
+    }
+
+
