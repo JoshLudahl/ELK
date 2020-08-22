@@ -111,16 +111,4 @@ fun hasLinks(): Matcher<View> = ViewMatchers.hasLinks()
 
 fun viewHasLinks(): ViewInteraction = onView(ViewMatchers.hasLinks())
 
-/**
- *   Extensions for [USER PROPERTIES]: LayoutMatchers.hasEllipsizedText()
- */
-fun hasEllipsizedText(): Matcher<View> = LayoutMatchers.hasEllipsizedText()
 
-fun viewHasEllipsizedText(): ViewInteraction = onView(LayoutMatchers.hasEllipsizedText())
-
-/**
- *   Extensions for [USER PROPERTIES]: LayoutMatchers.hasMultilineTest()
- */
-fun hasMultilineText(): Matcher<View> = LayoutMatchers.hasMultilineText()
-
-fun viewHasMultilineText(): ViewInteraction = onView(LayoutMatchers.hasMultilineText())
