@@ -121,4 +121,3 @@ fun regexMatcher(pattern: String): Matcher<View> =
             } ?: false
         }
     }
-
