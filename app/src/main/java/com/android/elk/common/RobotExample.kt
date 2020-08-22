@@ -3,8 +3,13 @@ package com.android.elk.common
 import android.view.View
 import android.widget.TextView
 import androidx.test.espresso.matcher.BoundedMatcher
+import com.android.elk.common.TestrailResultManager.Process.addResult
+import com.android.elk.common.TestrailResultManager.Process.checkIfEnabled
 import org.hamcrest.Description
 import org.hamcrest.Matcher
+import org.junit.Rule
+import org.junit.rules.TestWatcher
+import javax.security.auth.callback.Callback
 
 
 /**
@@ -80,7 +85,7 @@ interface Nav {
 class RegexTextViewMatcher(private val pattern: String) : BoundedMatcher<View, TextView>(TextView::class.java) {
 
     override fun describeTo(description: Description?) {
-        description?.appendText("Checking the matcher on received view: with pattern=$regex")
+        description?.appendText("Checking the matcher on received view: with pattern=$pattern")
     }
 
     override fun matchesSafely(item: TextView?) =
@@ -95,7 +100,7 @@ class RegexTextViewMatcher(private val pattern: String) : BoundedMatcher<View, T
 
 private fun withPattern(regex: String): Matcher<View> = RegexTextViewMatcher(regex)
 
-onView(withId(R.id.element_id)).check(matches(withPattern("\\+d")))
+// usage: onView(withId(R.id.element_id)).check(matches(withPattern("\\+d")))
 
 
 //As function
@@ -116,5 +121,4 @@ fun regexMatcher(pattern: String): Matcher<View> =
             } ?: false
         }
     }
-
 
