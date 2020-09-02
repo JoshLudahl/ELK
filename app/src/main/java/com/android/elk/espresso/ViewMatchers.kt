@@ -5,7 +5,6 @@ import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
-import androidx.test.espresso.matcher.LayoutMatchers
 import androidx.test.espresso.matcher.ViewMatchers
 import com.android.elk.common.stringValue
 import com.android.elk.common.targetContext
