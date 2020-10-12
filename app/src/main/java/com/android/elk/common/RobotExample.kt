@@ -2,24 +2,9 @@ package com.android.elk.common
 
 import android.view.View
 import android.widget.TextView
-import androidx.test.espresso.*
-import androidx.test.espresso.action.GeneralLocation
-import androidx.test.espresso.action.GeneralSwipeAction
-import androidx.test.espresso.action.Press
-import androidx.test.espresso.action.Swipe
 import androidx.test.espresso.matcher.BoundedMatcher
-import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.platform.app.InstrumentationRegistry
-import com.android.elk.common.TestrailResultManager.Process.addResult
-import com.android.elk.common.TestrailResultManager.Process.checkIfEnabled
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.TypeSafeMatcher
-import org.junit.Rule
-import org.junit.Test
-import org.junit.rules.TestWatcher
-import javax.security.auth.callback.Callback
 
 
 /**
@@ -131,4 +116,3 @@ fun regexMatcher(pattern: String): Matcher<View> =
             } ?: false
         }
     }
-

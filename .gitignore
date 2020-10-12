@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 .idea/*
+Staging*
+/app/src/main/java/com/android/elk/common/Staging.kt
