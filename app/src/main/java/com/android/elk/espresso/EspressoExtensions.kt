@@ -1,5 +1,6 @@
 package com.android.elk.espresso
 
+import android.app.PendingIntent.getActivity
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
@@ -8,11 +9,14 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.platform.app.InstrumentationRegistry
 import com.android.elk.common.stringValue
 import com.android.elk.common.targetContext
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
+import org.hamcrest.core.IsNot.not
 
 /**
  * Actions
@@ -123,4 +127,19 @@ fun ViewInteraction.cheskViewsAreHidden(@IdRes vararg viewIds: Int) {
             check(ViewAssertions.matches(ViewMatchers.hasDescendant(withId(view))))
         }
     }
+}
+
+/**
+ *  ToastMatcher (requires access to activity and context)
+ */
+fun toastMatcher(message: String) {
+    val context = InstrumentationRegistry.getInstrumentation().context
+    onView(ViewMatchers.withText(message))
+        .inRoot(
+            withDecorView(not(Matchers.`is`(getActivity(context)?.window?.decorView)))
+        ).check(
+            ViewAssertions.matches(
+                ViewMatchers.isDisplayed()
+            )
+        )
 }
