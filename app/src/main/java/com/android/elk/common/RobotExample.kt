@@ -1,10 +1,12 @@
 package com.android.elk.common
 
+import android.content.res.Configuration
 import android.view.View
 import android.widget.TextView
 import androidx.test.espresso.matcher.BoundedMatcher
 import org.hamcrest.Description
 import org.hamcrest.Matcher
+import org.hamcrest.TypeSafeMatcher
 
 
 /**
@@ -116,3 +118,21 @@ fun regexMatcher(pattern: String): Matcher<View> =
             } ?: false
         }
     }
+class DeviceDisplayModeMatcher (private val displayMode: Int) : TypeSafeMatcher<View>() {
+
+    override fun describeTo(description: Description?) {
+        description?.appendText("Getting display mode of: $displayMode")
+    }
+
+    override fun matchesSafely(item: View?): Boolean {
+        var mode = item?.context?.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)
+        return displayMode == mode
+    }
+}
+//onView(isRoot()).check(matches(DeviceDisplayModeMatcher(Configuration.UI_MODE_NIGHT_NO)))
+//val mode = context?.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)
+//when (mode) {
+//    Configuration.UI_MODE_NIGHT_YES -> {}
+//    Configuration.UI_MODE_NIGHT_NO -> {}
+//    Configuration.UI_MODE_NIGHT_UNDEFINED -> {}
+//}
