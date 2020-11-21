@@ -11,6 +11,13 @@ import org.hamcrest.Matcher
 
 import java.util.concurrent.TimeoutException
 
+
+/**
+ * This will allow Espresso to wait until a view appears on the screen
+ * @param viewId
+ * @param timeout
+ *
+ */
 fun waitForView(viewId: Int, timeout: Long): ViewAction {
     return object : ViewAction {
         override fun getConstraints(): Matcher {
