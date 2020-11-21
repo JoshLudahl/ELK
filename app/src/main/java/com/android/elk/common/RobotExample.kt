@@ -8,11 +8,6 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 
-
-/**
- * Lambda for driving navigation. Example: navigate { toLoadboardTab() } will navigate to the
- * LoadBoard tab. Includes variable generic notation for applying a block of code when creating a single instance across several robots (Views)
- */
 class MainView  {
 
     infix fun thenVerify(robot: MainViewResult.() -> Unit): MainViewResult {
