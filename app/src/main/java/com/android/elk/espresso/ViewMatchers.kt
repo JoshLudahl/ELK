@@ -109,5 +109,3 @@ fun viewWithSpinnerText(matcher: Matcher<String>): ViewInteraction =
 fun hasLinks(): Matcher<View> = ViewMatchers.hasLinks()
 
 fun viewHasLinks(): ViewInteraction = onView(ViewMatchers.hasLinks())
-
-
