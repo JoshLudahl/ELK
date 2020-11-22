@@ -57,22 +57,22 @@ inline fun <T> T.screen(block: T.() -> Unit): T {
     return this
 }
 
-interface Nav {
-    /**
-     * Main navigation entry point
-     */
-    fun navigate(robot: Bot.() -> Unit) = screen(Bot(), robot)
-
-    /**
-     * Generic function that checks if the specified id is even present prior to performing actions against it
-     * Obj objects are bound to Bound.
-     */
-    fun <T : Bound> screen(obj: T, init: T.() -> Unit): T {
-        view(id of view) verifyIt isDisplayed
-        return obj.apply { init() }
-    }
-
-}
+//interface Nav {
+//    /**
+//     * Main navigation entry point
+//     */
+//    fun navigate(robot: Bot.() -> Unit) = screen(Bot(), robot)
+//
+//    /**
+//     * Generic function that checks if the specified id is even present prior to performing actions against it
+//     * Obj objects are bound to Bound.
+//     */
+//    fun <T : Bound> screen(obj: T, init: T.() -> Unit): T {
+//        view(id of view) verifyIt isDisplayed
+//        return obj.apply { init() }
+//    }
+//
+//}
 // as class
 class RegexTextViewMatcher(private val pattern: String) : BoundedMatcher<View, TextView>(TextView::class.java) {
 
