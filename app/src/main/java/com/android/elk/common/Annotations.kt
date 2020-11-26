@@ -35,3 +35,17 @@ annotation class Then (
 annotation class And (
     val description: String
 )
+
+@Target(
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.FUNCTION
+)
+@Retention(AnnotationRetention.SOURCE)
+annotation class Production
+
+@Target(
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.FUNCTION
+)
+@Retention(AnnotationRetention.SOURCE)
+annotation class Development
