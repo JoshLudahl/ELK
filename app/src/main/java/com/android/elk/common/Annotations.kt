@@ -56,3 +56,12 @@ annotation class Development
 )
 @Retention(AnnotationRetention.SOURCE)
 annotation class Local
+
+@Target(
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.FUNCTION
+)
+@Retention(AnnotationRetention.SOURCE)
+annotation class TestId(
+    vararg val id: Int
+)
