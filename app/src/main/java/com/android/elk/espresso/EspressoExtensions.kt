@@ -16,6 +16,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.android.elk.common.stringValue
 import com.android.elk.common.targetContext
 import com.google.android.material.internal.ContextUtils.getActivity
+import com.kel.R
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.core.IsNot.not
@@ -91,6 +92,14 @@ fun checkViewsAreHidden(@IdRes vararg viewIds: Int) {
             .check(ViewAssertions.matches(Matchers.not(ViewMatchers.isDisplayed())))
     }
 }
+
+fun simpleBulkCheck(vararg viewIds: Matcher<View>): ViewInteraction =
+    onView(Matchers.allOf(*viewIds))
+    .check(ViewAssertions.matches(Matchers.not(ViewMatchers.isDisplayed())))
+
+fun view(@IdRes id: Int): Matcher<View> = withId(id)
+
+fun view(text: String): Matcher<View> = withText(text)
 
 fun checkTextsAreHidden(@StringRes vararg viewIds: Int) {
     for (viewId in viewIds) {
