@@ -16,7 +16,6 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.android.elk.common.stringValue
 import com.android.elk.common.targetContext
 import com.google.android.material.internal.ContextUtils.getActivity
-import com.kel.R
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.core.IsNot.not
