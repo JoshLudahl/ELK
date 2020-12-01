@@ -49,3 +49,10 @@ annotation class Production
 )
 @Retention(AnnotationRetention.SOURCE)
 annotation class Development
+
+@Target(
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.FUNCTION
+)
+@Retention(AnnotationRetention.SOURCE)
+annotation class Local
