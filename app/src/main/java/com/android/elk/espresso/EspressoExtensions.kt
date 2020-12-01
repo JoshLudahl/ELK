@@ -1,6 +1,5 @@
 package com.android.elk.espresso
 
-
 import android.annotation.SuppressLint
 import android.view.View
 import androidx.annotation.IdRes
