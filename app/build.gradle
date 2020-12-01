@@ -40,8 +40,9 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "androidx.core:core-ktx:$androidx_core_ctx_version"
+    implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
     implementation "com.google.android.material:material:$material_version"
 
     // JUnit
@@ -55,16 +56,19 @@ dependencies {
     androidTestImplementation "androidx.test:rules:$androidx_test_version"
 
     // Espresso libraries
-    api "androidx.test.espresso:espresso-accessibility:$espresso_version"
-    api "androidx.test.espresso:espresso-contrib:$espresso_version"
-    api "androidx.test.espresso:espresso-core:$espresso_version"
-    api "androidx.test.espresso:espresso-idling-resource:$espresso_version"
-    api "androidx.test.espresso:espresso-intents:$espresso_version"
-    api "androidx.test.espresso:espresso-remote:$espresso_version"
-    api "androidx.test.espresso:espresso-web:$espresso_version"
-    api "androidx.test.espresso.idling:idling-concurrent:$espresso_version"
-    api "androidx.test.uiautomator:uiautomator:$uiautomator_version"
+    implementation "androidx.test.espresso:espresso-accessibility:$espresso_version"
+    implementation "androidx.test.espresso:espresso-contrib:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    implementation "androidx.test.espresso:espresso-idling-resource:$espresso_version"
+    implementation "androidx.test.espresso:espresso-intents:$espresso_version"
+    implementation "androidx.test.espresso:espresso-remote:$espresso_version"
+    implementation "androidx.test.espresso:espresso-web:$espresso_version"
+    implementation "androidx.test.espresso.idling:idling-concurrent:$espresso_version"
+    implementation "androidx.test.uiautomator:uiautomator:$uiautomator_version"
+    implementation "androidx.test:rules:$androidx_test_version"
+    implementation "androidx.test:runner:$androidx_test_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.test.ext:junit:1.1.2'
 
     androidTestUtil "androidx.test:orchestrator:$test_orchestrator_version"
 

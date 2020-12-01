@@ -1,9 +1,16 @@
 package com.android.elk.espresso.lib
 
+import android.content.Intent
 import android.view.View
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.FragmentActivity
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.IdlingResource
+import com.android.elk.rules.EspressoSetupRule
+import org.junit.Rule
 import java.util.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 
 class DataBindingIdlingResource(
     private val activityScenarioRule: ActivityScenarioRule<*>

@@ -1,15 +1,15 @@
 package com.android.elk.rules
 
-import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.intent.Intents
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.android.elk.espresso.lib.DataBindingIdlingResource
 import com.android.elk.espresso.lib.EspressoIdlingResource
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
-class EspressoSetupRule(activityScenario: ActivityScenario<*>) : TestWatcher() {
-    private val dataBindingIdlingResource = DataBindingIdlingResource(activityScenario)
+class EspressoSetupRule(activityScenarioRule: ActivityScenarioRule<*>) : TestWatcher() {
+    private val dataBindingIdlingResource = DataBindingIdlingResource(activityScenarioRule)
 
     override fun starting(description: Description?) {
         Intents.init()
