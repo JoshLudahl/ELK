@@ -48,6 +48,16 @@ open class Base {
     }
 }
 
+class Bot: Base() {
+    fun unit() {
+
+    }
+}
+
+class SampleRobotClass {
+    fun sampleUnits() {}
+}
+
 fun <T> screen(init: T.() -> Unit): T = init as T
 
 fun <T> screen2(obj: T, init: T.() -> Unit): T = obj.apply { init() }

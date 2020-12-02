@@ -2,16 +2,16 @@ package com.android.elk
 
 import org.junit.Test
 
-open class BaseRobot {
+interface BaseRobot {
     fun <T> screen(init: T.() -> Unit): T = init as T
     fun <T> verify(init: T.() -> Unit): T = init as T
 }
 
-class SampleTest: BaseRobot() {
+class SampleTest: BaseRobot {
 
     @Test
     fun sampleTestFunction() {
-        screen<SampleObject>{
+        screen<SampleObject> {
             sampleFunction()
         }
 
