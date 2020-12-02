@@ -2,6 +2,18 @@
 ## Espresso Extension library written in Kotlin
 ## More to come, initial units
 
+### Built in Robot Pattern support for page object design
+Create an object, then call your object:
+```
+screen<PageObjectToUse> {
+    performSomething()
+}
+
+verify<PageObjectToVerify> {
+    checkSomething()
+}
+```
+
 ### Multiple ways to check views
 A simple, bulk check:
 ```
