@@ -18,8 +18,15 @@ verify<PageObjectToVerify> {
 Clicking on an object is easy:
 ```kotlin
 click on view(R.id.id_resource)
-type into view(R.id.textview_item)
+```
 
+Type text into a TextView:
+```kotlin
+type into view(R.id.textview_item)
+```
+
+Basic assertions are human readable:
+```kotlin
 view(R.id.id_resource) confirm isDisplayed
 ```
 
