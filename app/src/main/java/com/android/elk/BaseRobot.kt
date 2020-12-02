@@ -7,7 +7,7 @@ open class BaseRobot {
     fun <T> verify(init: T.() -> Unit): T = init as T
 }
 
-class SampleTest:BaseRobot() {
+class SampleTest: BaseRobot() {
 
     @Test
     fun sampleTestFunction() {
