@@ -33,6 +33,38 @@ bulkIsDisplayed(
 )
 ```
 
+### Annotations out of the box for Gherkin support and code separation
+Gherkin useage:
+```kotlin
+fun simpleCheck() {
+    @Given("I am on the home page")
+    @And("I am not logged in")
+    @When("I click on the login link")
+    @Then("I am taken to the login page")
+}
+```
+
+Separate Production, Development, and Local tests:
+```kotlin
+@Development
+@Test
+fun checkSomething() {
+...
+}
+
+@Production
+@Test
+fun checkSomething() {
+...
+}
+
+@Local
+@Test
+fun checkSomething() {
+...
+}
+```
+
 ### License
 MIT License
 
