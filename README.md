@@ -60,6 +60,13 @@ Simply call the toastMatcher function with the expected string:
 toastMatcher("My Message")
 ```
 
+### Changing orientation is easy
+Call the Espresso orientation changer:
+```kotlin
+rotateOrientationToLandscape()
+rotateOrientationToPortrait()
+``` 
+
 Separate Production, Development, and Local tests:
 ```kotlin
 @Development
