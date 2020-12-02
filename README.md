@@ -41,6 +41,7 @@ onView(withId(id)).isDisplayed()
 withId(id).isDisplayed()
 R.id.id_resource.isDisplayed()
 ```
+This allows for flexibility, so you can customize how your testing library looks and feels. 
 
 ### Annotations out of the box for Gherkin support and code separation
 Gherkin useage:
