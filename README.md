@@ -22,7 +22,7 @@ click on view(R.id.id_resource)
 
 Type text into a TextView:
 ```kotlin
-type into view(R.id.textview_item)
+type text("text") into(R.id.textview_item)
 ```
 
 Basic assertions are human readable:
