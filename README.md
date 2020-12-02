@@ -39,6 +39,7 @@ For example ViewMatchers.isDisplayed() can be used as part of a ViewInteraction,
 view(id) check isDisplayed
 onView(withId(id)).isDisplayed()
 withId(id).isDisplayed()
+R.id.id_resource.isDisplayed()
 ```
 
 ### Annotations out of the box for Gherkin support and code separation
