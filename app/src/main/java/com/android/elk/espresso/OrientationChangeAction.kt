@@ -48,6 +48,13 @@ class OrientationChangeAction(private val orientation: Int) : ViewAction {
 
         fun orientationPortrait(): ViewAction =
             OrientationChangeAction(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
+        fun orientationToggle(): ViewAction {
+            if (ActivityInfo.CONFIG_ORIENTATION == 0) {
+                return OrientationChangeAction(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+            }
+         return OrientationChangeAction(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+        }
     }
 
     override fun getDescription(): String = "change orientation to $orientation"
@@ -88,4 +95,8 @@ fun rotateOrientationToLandscape() {
 
 fun rotateOrientationToPortrait() {
     Espresso.onView(isRoot()).perform(OrientationChangeAction.orientationPortrait())
+}
+
+fun toggleOrientation() {
+    Espresso.onView(isRoot()).perform(OrientationChangeAction.orientationToggle())
 }

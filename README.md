@@ -65,6 +65,7 @@ Call the Espresso orientation changer:
 ```kotlin
 rotateOrientationToLandscape()
 rotateOrientationToPortrait()
+toggleOrientation()
 ``` 
 
 Separate Production, Development, and Local tests:
