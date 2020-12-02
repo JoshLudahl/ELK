@@ -86,6 +86,9 @@ Then just use a runner or command argument to exclude the desired tests:
 testInstrumentationRunnerArgument "notAnnotation", "com.android.elk.common.Production"
 ```
 
+### RecyclerView
+Various RecyclerView extensions, still working to make them simpler to use.
+
 ### Checking Toasts is easy
 Simply call the toastMatcher function with the expected string:
 ```kotlin
