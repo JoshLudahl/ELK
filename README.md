@@ -102,8 +102,8 @@ Includes the suggested IdlingResource class from Android, which you can copy to 
 
 To use, set the rule up and send your activity rule as a parameter:
 ```kotlin
-    @get:Rule
-    val espressoSetupRule = EspressoSetupRule(activityRule)
+@get:Rule
+val espressoSetupRule = EspressoSetupRule(activityRule)
 ```
 If used, it will register/unregister:
 -IdlingResources
