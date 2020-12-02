@@ -100,6 +100,16 @@ fun checkSomething() {
 Included in the setup is the Intents, Idling Resources, and DataBindingIdlingResource registering and unregistering.
 Includes the suggested IdlingResource class from Android, which you can copy to your production code if you want to use it.
 
+To use, set the rule up and send your activity rule as a parameter:
+```kotlin
+    @get:Rule
+    val espressoSetupRule = EspressoSetupRule(activityRule)
+```
+If used, it will register/unregister:
+-IdlingResources
+-DataBindingIdlingResources
+-Intents
+
 ### Test Configuration and Utilities
 Simple utility functions for accessing configurations such as string resources:
 ```kotlin
