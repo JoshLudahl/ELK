@@ -89,6 +89,27 @@ fun checkSomething() {
 }
 ```
 
+### Includes an Espresso setup rule
+Included in the setup is the Intents, Idling Resources, and DataBindingIdlingResource registering and unregistering.
+Includes the suggested IdlingResource class from Android, which you can copy to your production code if you want to use it.
+
+### Test Configuration and Utilities
+Simple utility functions for accessing configurations such as string resources:
+```kotlin
+context stringOf id.string.some_string
+```
+
+Assets:
+```kotlin
+assets
+```
+
+Instrumentation:
+```kotlin
+instrumentation
+```
+Simple, but useful way to easily get access to the applications configuration.
+
 ### License
 MIT License
 
