@@ -106,9 +106,9 @@ To use, set the rule up and send your activity rule as a parameter:
 val espressoSetupRule = EspressoSetupRule(activityRule)
 ```
 If used, it will register/unregister:
--IdlingResources
--DataBindingIdlingResources
--Intents
+* IdlingResources
+* DataBindingIdlingResources
+* Intents
 
 ### Test Configuration and Utilities
 Simple utility functions for accessing configurations such as string resources:
