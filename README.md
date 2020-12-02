@@ -54,6 +54,12 @@ fun simpleCheck() {
 }
 ```
 
+### Checking Toasts is easy
+Simply call the toastMatcher function with the expected string:
+```kotlin
+toastMatcher("My Message")
+```
+
 Separate Production, Development, and Local tests:
 ```kotlin
 @Development

@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.res.AssetManager
 import android.content.res.Configuration
 import android.content.res.Resources
+import androidx.annotation.IdRes
+import androidx.annotation.StringRes
 import androidx.test.platform.app.InstrumentationRegistry
 import java.util.*
 
@@ -40,16 +42,26 @@ fun Context.getConfigurationResources(locale: Locale): Resources {
 infix fun Resources.nameOf(viewId: Int): String = getResourceName(viewId)
 
 /**
- * Gets a application configuration with forced [Locale.GERMAN]
- */
-fun Context.getGermanConfiguration() = getConfigurationResources(Locale.GERMAN)
-
-/**
  * Gets a application configuration with forced [Locale.ENGLISH]
  */
 fun Context.getEnglishConfiguration() = getConfigurationResources(Locale.ENGLISH)
 
 /**
+ * Gets a application configuration with forced [Locale.FRENCH]
+ */
+fun Context.getFrenchConfiguration() = getConfigurationResources(Locale.FRENCH)
+
+/**
+ * Gets a application configuration with forced [Locale.GERMAN]
+ */
+fun Context.getGermanConfiguration() = getConfigurationResources(Locale.GERMAN)
+
+/**
+ * Gets a application configuration with forced [Locale.JAPANESE]
+ */
+fun Context.getJapaneseConfiguration() = getConfigurationResources(Locale.JAPANESE)
+
+/**
  * Sugar syntax for getting a string value
  */
-infix fun Context.stringValue(id: Int) = getString(id)
+infix fun Context.stringValue(@StringRes id: Int) = getString(id)
