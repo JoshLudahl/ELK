@@ -33,6 +33,14 @@ bulkIsDisplayed(
 )
 ```
 
+### Extensions utilize both ViewInteractions, Matchers, and some sugar syntax utilizing Kotlins infix notation
+For example ViewMatchers.isDisplayed() can be used as part of a ViewInteraction, Matcher, or as part of an assertion:
+```kotlin
+view(id) check isDisplayed
+onView(withId(id)).isDisplayed()
+withId(id).isDisplayed()
+```
+
 ### Annotations out of the box for Gherkin support and code separation
 Gherkin useage:
 ```kotlin
