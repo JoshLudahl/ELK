@@ -91,7 +91,7 @@ fun checkViewsAreHidden(@IdRes vararg viewIds: Int) {
     }
 }
 
-fun simpleBulkCheck(vararg viewIds: Matcher<View>): ViewInteraction =
+fun bulkIsDisplayed(vararg viewIds: Matcher<View>): ViewInteraction =
     onView(Matchers.allOf(*viewIds))
     .check(ViewAssertions.matches(Matchers.not(ViewMatchers.isDisplayed())))
 
