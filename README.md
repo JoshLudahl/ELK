@@ -61,20 +61,6 @@ fun simpleCheck() {
 }
 ```
 
-### Checking Toasts is easy
-Simply call the toastMatcher function with the expected string:
-```kotlin
-toastMatcher("My Message")
-```
-
-### Changing orientation is easy
-Call the Espresso orientation changer:
-```kotlin
-rotateOrientationToLandscape()
-rotateOrientationToPortrait()
-toggleOrientation()
-``` 
-
 Separate Production, Development, and Local tests:
 ```kotlin
 @Development
@@ -95,6 +81,20 @@ fun checkSomething() {
 ...
 }
 ```
+
+### Checking Toasts is easy
+Simply call the toastMatcher function with the expected string:
+```kotlin
+toastMatcher("My Message")
+```
+
+### Changing orientation is easy
+Call the Espresso orientation changer:
+```kotlin
+rotateOrientationToLandscape()
+rotateOrientationToPortrait()
+toggleOrientation()
+``` 
 
 ### Includes an Espresso setup rule
 Included in the setup is the Intents, Idling Resources, and DataBindingIdlingResource registering and unregistering.
