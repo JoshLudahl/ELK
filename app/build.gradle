@@ -1,8 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.dokka'
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
     defaultConfig {
         minSdkVersion 22
@@ -18,6 +23,8 @@ android {
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
     }
+
+
 
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
@@ -70,4 +77,5 @@ dependencies {
     api 'androidx.test.ext:junit:1.1.2'
 
     api "androidx.test:orchestrator:$test_orchestrator_version"
+    dokkaHtmlPlugin "org.jetbrains.dokka:kotlin-as-java-plugin:$dokka_version"
 }
