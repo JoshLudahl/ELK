@@ -2,15 +2,17 @@
 ## Espresso Extension library written in Kotlin
 A simple extension library for Espresso with support for the page object design, or in this case, the Robot Pattern. This library is growing and more features to come.  There are a few ways to perform different actions and assertions as well as matching objects.
 
-### Built in Robot Pattern support for page object design
-Create an object, then call your object:
-```kotlin
-screen<PageObjectToUse> {
-    performSomething()
+### Get started
+To include the library, add the following to your app module build.gradle file:
+```groovy
+dependencies {
+    androidTestImplementation "com.github.JoshLudahl:ELK:$elk_version"
 }
-
-verify<PageObjectToVerify> {
-    checkSomething()
+```
+And be sure to include jitpack in the repositories:
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
 }
 ```
 
@@ -133,6 +135,12 @@ Instrumentation:
 instrumentation
 ```
 Simple, but useful way to easily get access to the applications configuration.
+
+### Now with Dokka
+You can now generate Dokka documents with this library.
+
+### Disclaimer
+This project is under development and is not suggested for production development at this time.
 
 ### License
 MIT License
