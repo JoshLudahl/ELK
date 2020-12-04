@@ -137,9 +137,6 @@ instrumentation
 ```
 Simple, but useful way to easily get access to the applications configuration.
 
-### Now with Dokka
-You can now generate Dokka documents with this library.
-
 ### Disclaimer
 This project is under development and is not suggested for production development at this time.
 
