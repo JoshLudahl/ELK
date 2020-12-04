@@ -17,7 +17,9 @@ import com.android.elk.common.targetContext
 import com.google.android.material.internal.ContextUtils.getActivity
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
+import org.hamcrest.Matchers.instanceOf
 import org.hamcrest.core.IsNot.not
+import kotlin.reflect.KClass
 
 /**
  * Actions
@@ -99,6 +101,8 @@ fun view(@IdRes id: Int): Matcher<View> = withId(id)
 
 fun view(text: String): Matcher<View> = withText(text)
 
+fun view(clazz: KClass<*>): Matcher<View> = instanceOf(clazz::class.java)
+
 fun checkTextsAreHidden(@StringRes vararg viewIds: Int) {
     for (viewId in viewIds) {
         onView(withText(targetContext stringValue viewId))
@@ -124,14 +128,6 @@ fun ViewInteraction.checkViewsAreHidden(@IdRes vararg viewIds: Int) {
 
 fun Int.checkViewsAreHidden(@IdRes vararg viewIds: Int) {
     with(onView(withId(this))) {
-        for (view in viewIds) {
-            check(ViewAssertions.matches(ViewMatchers.hasDescendant(withId(view))))
-        }
-    }
-}
-
-fun ViewInteraction.cheskViewsAreHidden(@IdRes vararg viewIds: Int) {
-    this.let {
         for (view in viewIds) {
             check(ViewAssertions.matches(ViewMatchers.hasDescendant(withId(view))))
         }

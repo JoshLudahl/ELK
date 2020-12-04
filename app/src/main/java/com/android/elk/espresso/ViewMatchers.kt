@@ -29,9 +29,6 @@ fun viewWithText(text: String): ViewInteraction = onView(ViewMatchers.withText(t
 
 fun viewWithText(@StringRes id: Int): ViewInteraction = onView(ViewMatchers.withText(id))
 
-fun sadf() {
-    ViewMatchers.isDisplayed()
-}
 /**
  *   Extensions for [USER PROPERTIES]: ViewMatcher.withTagKey()
  */
