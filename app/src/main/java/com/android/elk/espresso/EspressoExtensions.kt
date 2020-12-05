@@ -101,7 +101,7 @@ fun view(@IdRes id: Int): Matcher<View> = withId(id)
 
 fun view(text: String): Matcher<View> = withText(text)
 
-fun view(clazz: KClass<*>): Matcher<View> = instanceOf(clazz::class.java)
+fun view(clazz: Class<out View>): Matcher<View> = ViewMatchers.isAssignableFrom(clazz)
 
 fun checkTextsAreHidden(@StringRes vararg viewIds: Int) {
     for (viewId in viewIds) {
