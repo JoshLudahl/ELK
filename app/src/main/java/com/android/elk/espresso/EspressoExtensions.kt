@@ -97,7 +97,7 @@ fun checkViewsAreHidden(@IdRes vararg viewIds: Int) {
  * Checks if a list of Matchers of is in the same View
  *
  * @param viewIds
- * @return ViewInteraction 
+ * @return ViewInteraction
  */
 fun bulkIsMatcherIsDisplayed(vararg viewIds: Matcher<View>): ViewInteraction =
     onView(Matchers.allOf(*viewIds))
