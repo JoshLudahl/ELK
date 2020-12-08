@@ -2,12 +2,10 @@ package com.android.elk
 
 import org.junit.Test
 
-interface BaseRobot {
-    fun <T> screen(init: T.() -> Unit): T = init as T
-    fun <T> verify(init: T.() -> Unit): T = init as T
-}
+inline fun <reified T: Any> screen(init: T.() -> Unit): T? = T::class.java.newInstance().apply { init() }
+inline fun <reified T: Any> verify(init: T.() -> Unit): T? = T::class.java.newInstance().apply { init() }
 
-class SampleTest: BaseRobot {
+class SampleTest {
 
     @Test
     fun sampleTestFunction() {

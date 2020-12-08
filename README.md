@@ -137,6 +137,24 @@ instrumentation
 ```
 Simple, but useful way to easily get access to the applications configuration.
 
+### Support for the Robot Pattern
+You can use the Robot Pattern in your tests.  A generic Robot class has been created so you can use syntax like:
+```kotlin
+screen<ScreenObjectClass> {
+    screenObjectClassFunctions()
+}
+
+verify<ScreenObjectClass> {
+    screenObjectClassFunctions()
+}
+```
+It does require Kotlin's reflection library:
+```groovy
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$version"
+}
+```
+
 ### Disclaimer
 This project is under development and is not suggested for production development at this time.
 
