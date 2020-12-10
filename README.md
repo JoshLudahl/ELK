@@ -89,6 +89,15 @@ Then just use a runner or command argument to exclude the desired tests:
 testInstrumentationRunnerArgument "notAnnotation", "com.android.elk.common.Production"
 ```
 
+A generic TestId annotation which takes in a vararg integer:
+```kotlin
+@Test
+@TestId(12345) // could take in zero or many integers
+fun checkSomething() { 
+...
+}
+```
+
 ### RecyclerView
 Various RecyclerView extensions, still working to make them simpler to use.
 
