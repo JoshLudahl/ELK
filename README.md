@@ -138,7 +138,7 @@ instrumentation
 Simple, but useful way to easily get access to the applications configuration.
 
 ### Support for the Robot Pattern
-You can use the Robot Pattern in your tests.  A generic Robot class has been created so you can use syntax like:
+You can use the Robot Pattern in your tests.  A generic Robot class has been provided, so you can use syntax like:
 ```kotlin
 screen<ScreenObjectClass> {
     screenObjectClassFunctions()
@@ -147,6 +147,7 @@ screen<ScreenObjectClass> {
 verify<ScreenObjectClass> {
     screenObjectClassFunctions()
 }
+
 ```
 It does require Kotlin's reflection library:
 ```groovy
@@ -156,7 +157,7 @@ dependencies {
 ```
 
 ### Disclaimer
-This project is under development and is not suggested for production development at this time.
+This project is under development and is not suggested for production development at this time.  Mostly used as a means to learn Kotlin. :)
 
 ### License
 MIT License
