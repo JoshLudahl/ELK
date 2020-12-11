@@ -17,9 +17,7 @@ import com.android.elk.common.targetContext
 import com.google.android.material.internal.ContextUtils.getActivity
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
-import org.hamcrest.Matchers.instanceOf
 import org.hamcrest.core.IsNot.not
-import kotlin.reflect.KClass
 
 /**
  * Actions
@@ -102,6 +100,16 @@ fun checkViewsAreHidden(@IdRes vararg viewIds: Int) {
 fun bulkIsMatcherIsDisplayed(vararg viewIds: Matcher<View>): ViewInteraction =
     onView(Matchers.allOf(*viewIds))
     .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+/**
+ * Takes in view matchers and checks if each one is displayed
+ * @param views
+ */
+fun bulkIsDisplayed(vararg views: Matcher<View>) {
+    for(view in views) {
+        view verify isDisplayed
+    }
+}
 
 /**
  * View matcher - matches a view with id
