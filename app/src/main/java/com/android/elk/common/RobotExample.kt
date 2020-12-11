@@ -47,6 +47,9 @@ fun regexMatcher(pattern: String): Matcher<View> =
             } ?: false
         }
     }
+
+    //usage: onView(withText("something")).check(matches(regexMatcher("\\+d")))
+
 class DeviceDisplayModeMatcher (private val displayMode: Int) : TypeSafeMatcher<View>() {
 
     override fun describeTo(description: Description?) {
@@ -54,7 +57,7 @@ class DeviceDisplayModeMatcher (private val displayMode: Int) : TypeSafeMatcher<
     }
 
     override fun matchesSafely(item: View?): Boolean {
-        var mode = item?.context?.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)
+        val mode = item?.context?.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)
         return displayMode == mode
     }
 }
