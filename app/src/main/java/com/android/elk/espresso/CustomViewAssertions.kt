@@ -7,7 +7,6 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.BoundedMatcher
-import androidx.test.espresso.matcher.ViewMatchers
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -78,6 +77,9 @@ fun themeMode(displayMode: Int): Matcher<View> =
     }
 
 fun Matcher<View>.withMode(displayMode: Int): ViewInteraction =
+    Espresso.onView(this).check(ViewAssertions.matches(themeMode(displayMode)))
+
+infix fun Matcher<View>.isMode(displayMode: Int): ViewInteraction =
     Espresso.onView(this).check(ViewAssertions.matches(themeMode(displayMode)))
 
 //onView(isRoot()).check(matches(DeviceDisplayModeMatcher(Configuration.UI_MODE_NIGHT_NO)))
