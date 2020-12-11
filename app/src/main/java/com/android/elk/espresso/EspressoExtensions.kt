@@ -84,6 +84,12 @@ infix fun ViewInteraction.confirmThat(viewAssertion: ViewAssertion) {
 /**
  * Bulk operations
  */
+
+/**
+ * Checks if many views are hidden
+ *
+ * @param viewIds
+ */
 fun checkViewsAreHidden(@IdRes vararg viewIds: Int) {
     for (viewId in viewIds) {
         onView(withId(viewId))
@@ -92,7 +98,7 @@ fun checkViewsAreHidden(@IdRes vararg viewIds: Int) {
 }
 
 /**
- * Checks if a list of Matchers of is in the same View
+ * Checks if a list of Matchers of is in the same View, great for allOf(...)
  *
  * @param viewIds
  * @return ViewInteraction
@@ -105,7 +111,7 @@ fun bulkIsMatcherIsDisplayed(vararg viewIds: Matcher<View>): ViewInteraction =
  * Takes in view matchers and checks if each one is displayed
  * @param views
  */
-fun bulkIsDisplayed(vararg views: Matcher<View>) {
+fun viewsAreDisplayed(vararg views: Matcher<View>) {
     for(view in views) {
         view verify isDisplayed
     }

@@ -36,7 +36,7 @@ view(R.id.id_resource) confirm isDisplayed
 ### Multiple ways to check views
 A simple, bulk check:
 ```kotlin
-bulkIsDisplayed(
+viewsAreDisplayed(
     view("Text to check"),
     view(R.id.id_resource_to_check),
     view(R.string.string_resource_to_check)
