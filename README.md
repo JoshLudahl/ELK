@@ -53,6 +53,21 @@ R.id.id_resource.isDisplayed()
 ```
 This allows for flexibility, so you can customize how your testing library looks and feels. 
 
+### Custom View Matchers will help find elements easier
+A regular expression helper function:
+```kotlin
+fun checker() {
+    view(R.id.resource_id).withPattern("\\+d")
+}
+```
+Check the theme mode for dark or light mode:
+```kotlin
+fun checker() {
+    view(isRoot()).withMode(Configuration.UI_MODE_NIGHT_YES)
+}
+```
+
+
 ### Annotations out of the box for Gherkin support and code separation
 Gherkin useage:
 ```kotlin
