@@ -66,7 +66,7 @@ fun checker() {
     view(isRoot()).withMode(Configuration.UI_MODE_NIGHT_YES)
 }
 ```
-
+Which checks the provided mode against the system mode and will return true if they match.
 
 ### Annotations out of the box for Gherkin support and code separation
 Gherkin useage:
