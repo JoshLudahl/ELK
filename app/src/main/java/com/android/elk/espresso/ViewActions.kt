@@ -7,8 +7,8 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
-import com.android.elk.common.targetContext
 import com.android.elk.common.stringValue
+import com.android.elk.common.targetContext
 import org.hamcrest.Matcher
 
 /**
@@ -151,7 +151,7 @@ fun Matcher<View>.openLinkWithText(uri: Matcher<String>): ViewInteraction =
 fun ViewInteraction.openLinkWithText(uri: String): ViewInteraction =
     perform(ViewActions.openLinkWithText(uri))
 
-fun ViewInteraction.openLinkWithText(@StringRes id: Int) : ViewInteraction =
+fun ViewInteraction.openLinkWithText(@StringRes id: Int): ViewInteraction =
     perform(ViewActions.openLinkWithText(targetContext stringValue id))
 
 fun ViewInteraction.openLinkWithText(uri: Matcher<String>): ViewInteraction =
@@ -298,7 +298,7 @@ fun ViewInteraction.typeTextIntoFocusedView(text: String): ViewInteraction =
 fun ViewInteraction.typeTextIntoFocusedView(@StringRes id: Int): ViewInteraction =
     perform(ViewActions.typeTextIntoFocusedView(targetContext stringValue id))
 
-fun typeTextIntoFocusedView(text:String): ViewAction = ViewActions.typeTextIntoFocusedView(text)
+fun typeTextIntoFocusedView(text: String): ViewAction = ViewActions.typeTextIntoFocusedView(text)
 
 fun typeTextIntoFocusedView(@StringRes id: Int): ViewAction =
     ViewActions.typeTextIntoFocusedView(targetContext stringValue id)

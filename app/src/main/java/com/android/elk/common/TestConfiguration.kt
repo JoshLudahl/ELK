@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.res.AssetManager
 import android.content.res.Configuration
 import android.content.res.Resources
-import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.test.platform.app.InstrumentationRegistry
 import java.util.*

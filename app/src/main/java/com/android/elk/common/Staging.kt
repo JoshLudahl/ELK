@@ -2,65 +2,52 @@ package com.android.elk.common
 
 import android.view.View
 import android.widget.TextView
-import androidx.test.espresso.*
-import androidx.test.espresso.action.CoordinatesProvider
-import androidx.test.espresso.action.GeneralLocation
-import androidx.test.espresso.action.GeneralSwipeAction
-import androidx.test.espresso.action.Press
-import androidx.test.espresso.action.Swipe
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
+import androidx.test.espresso.ViewAssertion
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.platform.app.InstrumentationRegistry
+import com.android.elk.espresso.verify
+import com.android.elk.espresso.view
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import org.hamcrest.CoreMatchers.not
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
-import org.junit.Rule
-import org.junit.Test
-import org.junit.rules.TestWatcher
-import javax.security.auth.callback.Callback
 
-
-
-inline fun <reified K: Enum<K> , reified T: Enum<T>> onlyOneIsSelected(enum: K, enumMap: MutableMap<Enum<T>, Int>) {
-    view(enumMap[enumValues<T>()[enum.ordinal]] as Int) checkIf isChecked
+/**
+ * Generic function to check for if a set of items are checked, selected, etc. (customizeable)
+ *
+ * It takes a positive value (true) enum and a list of the enums available.  It will then remove the positive from the list
+ * and check that all others in the list are of negative value (false)
+ *
+ * @param enum takes an enum of type K which you want to check for the positive value
+ * @param enumMap takes a mutable map of enum of the type T
+ * @param assertion takes in a [ViewAssertion] type
+ */
+inline fun <reified K: Enum<K> , reified T: Enum<T>> onlyOneIsSelected(enum: K, enumMap: MutableMap<Enum<T>, Int>, assertion: ViewAssertion) {
+    view(enumMap[enumValues<T>()[enum.ordinal]] as Int) verify assertion
     enumMap.remove(enum as Enum<*>)
 
     for (value in enumMap) {
-        view(value.value) checkIf isUnChecked
+        onView(view(value.value)).check(matches(not(assertion)))
+        //view(value.value) checkIf isUnChecked
     }
 }
-
-
-/**
- *  Custom BottomSheet Behavior
- */
-
-//fun testSwipeUpToExpand() {
-//    Espresso.onView(ViewMatchers.withId(id.map_search_options))
-//        .perform(
-//            DesignViewActions.withCustomConstraints(
-//                GeneralSwipeAction(
-//                    Swipe.FAST,
-//                    GeneralLocation.VISIBLE_CENTER,
-//                    CoordinatesProvider { view: View -> floatArrayOf(view.width / 2.toFloat(), 0f) },
-//                    Press.FINGER
-//                ),
-//                ViewMatchers.isDisplayingAtLeast(5)
-//            )
-//        )
-//
-//    try {
-//        //
-//    } finally {
-//
-//    }
-//}
 
 /**
  * Intents stubbing
  */
+
 //intending(not(isInternal())).respondWith(Instrumentation.ActivityResult(Activity.RESULT_OK, null))
+
+/**
+ *  Custom BottomSheet Behavior
+ */
 
 object DesignViewActions {
     /** Overwrites the constraints of the specified [ViewAction].  */

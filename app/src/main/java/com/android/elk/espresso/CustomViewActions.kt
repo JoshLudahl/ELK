@@ -11,7 +11,6 @@ import org.hamcrest.Matcher
 
 import java.util.concurrent.TimeoutException
 
-
 /**
  * This will allow Espresso to wait until a view appears on the screen
  * @param viewId
