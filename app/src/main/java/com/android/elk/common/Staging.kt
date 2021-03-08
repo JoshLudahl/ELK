@@ -35,7 +35,7 @@ inline fun <reified K: Enum<K> , reified T: Enum<T>> onlyOneIsSelected(enum: K, 
 
     for (value in enumMap) {
         onView(view(value.value)).check(matches(not(assertion)))
-        //view(value.value) checkIf isUnChecked
+        //view(value.value) verify isUnChecked
     }
 }
 
@@ -109,7 +109,7 @@ object DesignViewActions {
     }
 }
 
-private fun collapseDrawer(): ViewAction? {
+private fun collapseDrawer(): ViewAction {
     return object : ViewAction {
 
         override fun getConstraints(): Matcher<View> {
@@ -135,7 +135,7 @@ private fun waitForIdler() {
  * custom ViewAction Template
  */
 
-fun customViewActionTemplate(): ViewAction? {
+fun customViewActionTemplate(): ViewAction {
     return object: ViewAction {
         override fun getConstraints(): Matcher<View> {
             TODO("Not yet implemented")
@@ -154,7 +154,7 @@ fun customViewActionTemplate(): ViewAction? {
 /**
  * Custom ViewAssertion template
  */
-fun customViewAssertion(): ViewAssertion? {
+fun customViewAssertion(): ViewAssertion {
     return object : ViewAssertion {
         override fun check(view: View?, noViewFoundException: NoMatchingViewException?) {
             TODO("Not yet implemented")
