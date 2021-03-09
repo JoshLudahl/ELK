@@ -17,6 +17,7 @@ import com.android.elk.common.targetContext
 import com.google.android.material.internal.ContextUtils.getActivity
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
+import org.hamcrest.core.AllOf.allOf
 import org.hamcrest.core.IsNot.not
 
 /**
@@ -140,6 +141,14 @@ fun view(text: String): Matcher<View> = withText(text)
  * @return Matcher<View>
  */
 fun view(clazz: Class<out View>): Matcher<View> = ViewMatchers.isAssignableFrom(clazz)
+
+/**
+ * Views Matcher - matches several compound views, shorthand for allOf(), but takes Matchers
+ * @sample views(view(R.id.some_resource), view("A String"), withId(R.id.another_id))
+ * @param matchers takes a list of matchers
+ * @return Matcher<View> object
+ */
+fun views(vararg matchers: Matcher<View>): Matcher<View> = allOf(*matchers)
 
 /**
  * Checks a varable number of arguments of type Int that is a string from a string value
