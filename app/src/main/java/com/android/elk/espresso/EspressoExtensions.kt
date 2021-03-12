@@ -1,10 +1,13 @@
 package com.android.elk.espresso
 
 import android.annotation.SuppressLint
+import android.os.strictmode.ResourceMismatchViolation
+import android.util.NoSuchPropertyException
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.ViewInteraction
@@ -19,6 +22,19 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.core.AllOf.allOf
 import org.hamcrest.core.IsNot.not
+
+enum class ResourceType {
+    ID, STRING
+}
+
+val Int.resType: ResourceType
+get() {
+    return when (targetContext.resources.getResourceTypeName(this)) {
+        "id" -> ResourceType.ID
+        "string" -> ResourceType.STRING
+        else -> throw NoSuchPropertyException("No matching property.")
+    }
+}
 
 /**
  * Actions
@@ -119,12 +135,16 @@ fun viewsAreDisplayed(vararg views: Matcher<View>) {
 }
 
 /**
- * View matcher - matches a view with id
+ * View matcher - matches a view of either string or id resource.
  *
  * @param id - id resource
+ *
  * @return Matcher<View>
  */
-fun view(@IdRes id: Int): Matcher<View> = withId(id)
+fun view(@IdRes @StringRes id: Int): Matcher<View> = when(id.resType) {
+    ResourceType.ID -> withId(id)
+    ResourceType.STRING -> withText(id)
+}
 
 /**
  * View matcher - matches a view with text
