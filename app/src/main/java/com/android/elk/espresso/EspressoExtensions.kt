@@ -1,13 +1,11 @@
 package com.android.elk.espresso
 
 import android.annotation.SuppressLint
-import android.os.strictmode.ResourceMismatchViolation
 import android.util.NoSuchPropertyException
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.ViewInteraction
@@ -28,13 +26,13 @@ enum class ResourceType {
 }
 
 val Int.resType: ResourceType
-get() {
-    return when (targetContext.resources.getResourceTypeName(this)) {
-        "id" -> ResourceType.ID
-        "string" -> ResourceType.STRING
-        else -> throw NoSuchPropertyException("No matching property.")
+    get() {
+        return when (targetContext.resources.getResourceTypeName(this)) {
+            "id" -> ResourceType.ID
+            "string" -> ResourceType.STRING
+            else -> throw NoSuchPropertyException("No matching property.")
+        }
     }
-}
 
 /**
  * Actions
@@ -99,10 +97,6 @@ infix fun ViewInteraction.confirmThat(viewAssertion: ViewAssertion) {
 }
 
 /**
- * Bulk operations
- */
-
-/**
  * Checks if many views are hidden
  *
  * @param viewIds
@@ -122,14 +116,14 @@ fun checkViewsAreHidden(@IdRes vararg viewIds: Int) {
  */
 fun bulkIsMatcherIsDisplayed(vararg viewIds: Matcher<View>): ViewInteraction =
     onView(Matchers.allOf(*viewIds))
-    .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
 /**
  * Takes in view matchers and checks if each one is displayed
  * @param views
  */
 fun viewsAreDisplayed(vararg views: Matcher<View>) {
-    for(view in views) {
+    for (view in views) {
         view verify isDisplayed
     }
 }
@@ -141,7 +135,7 @@ fun viewsAreDisplayed(vararg views: Matcher<View>) {
  *
  * @return Matcher<View>
  */
-fun view(@IdRes @StringRes id: Int): Matcher<View> = when(id.resType) {
+fun view(@IdRes @StringRes id: Int): Matcher<View> = when (id.resType) {
     ResourceType.ID -> withId(id)
     ResourceType.STRING -> withText(id)
 }
