@@ -1,6 +1,8 @@
 package com.android.elk.espresso
 
 import android.net.Uri
+import android.os.Build.VERSION_CODES.R
+import android.util.NoSuchPropertyException
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.test.espresso.Espresso.onView
@@ -64,6 +66,13 @@ fun Matcher<View>.pressBack(): ViewInteraction =
 fun ViewInteraction.pressback(): ViewInteraction = perform(ViewActions.pressBack())
 
 val pressBack: ViewAction get() = ViewActions.pressBack()
+
+fun <T> T.pressB() : ViewInteraction =
+    when (this) {
+        is ViewInteraction -> this
+        is Matcher<*> -> onView(this as? Matcher<View>)
+        else -> throw NoSuchPropertyException("Unable to determine the type of property.")
+    }.perform(ViewActions.pressBack())
 
 /**
  *   Extensions for [CLICK/PRESS]: ViewAction.pressBackUnconditionally() on
