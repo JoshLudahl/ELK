@@ -1,16 +1,13 @@
 package com.android.elk.espresso.lib
 
-import android.content.Intent
+import android.app.Activity
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.FragmentActivity
-import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.IdlingResource
-import com.android.elk.rules.EspressoSetupRule
-import org.junit.Rule
-import java.util.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import java.util.*
 
 class DataBindingIdlingResource(
     private val activityScenarioRule: ActivityScenarioRule<*>
@@ -55,11 +52,20 @@ class DataBindingIdlingResource(
         idlingCallbacks.add(callback)
     }
 
+    private val activity: Activity?
+        get() {
+            var currentActivity: Activity? = null
+            activityScenarioRule.scenario.onActivity {
+                currentActivity = it
+            }
+            return currentActivity
+        }
+
     /**
      * Find all binding classes in all currently available fragments.
      */
     private fun getBindings(): List<ViewDataBinding> {
-        return (activityScenarioRule.scenario as? FragmentActivity)
+        return (activity as? FragmentActivity)
             ?.supportFragmentManager
             ?.fragments
             ?.mapNotNull {
