@@ -21,7 +21,7 @@ fun ViewInteraction.isDisplayed(): ViewInteraction =
 fun Int.isDisplayed(): ViewInteraction =
     onView(withId(this)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
-val isDisplayed: ViewAssertion = ViewAssertions.matches(isDisplayed())
+val isDisplayed: Matcher<View> = ViewMatchers.isDisplayed()
 
 /**
  *  Extension functions for [ViewMatchers.isCompletelyDisplayed()] for [ViewAssertion.matches()]
@@ -35,8 +35,7 @@ fun ViewInteraction.isCompletelyDisplayed(): ViewInteraction =
 fun Int.isCompletelyDisplayed(): ViewInteraction =
     onView(withId(this)).check(ViewAssertions.matches(ViewMatchers.isCompletelyDisplayed()))
 
-val isCompletelyDisplayed: ViewAssertion =
-    ViewAssertions.matches(isCompletelyDisplayed())
+val isCompletelyDisplayed: Matcher<View> = isCompletelyDisplayed()
 
 /**
  *  Extension functions for [ViewMatchers.isEnabled()] for [ViewAssertion.matches()]
@@ -50,7 +49,7 @@ fun ViewInteraction.isEnabled(): ViewInteraction =
 fun Int.isEnabled(): ViewInteraction =
     onView(withId(this)).check(ViewAssertions.matches(ViewMatchers.isEnabled()))
 
-val isEnabled: ViewAssertion = ViewAssertions.matches(isEnabled())
+val isEnabled: Matcher<View> = isEnabled()
 
 /**
  *  Extension functions for [ViewMatchers.hasFocus()] for [ViewAssertion.matches()]
@@ -64,7 +63,7 @@ fun ViewInteraction.hasFocus(): ViewInteraction =
 fun Int.hasFocus(): ViewInteraction =
     onView(withId(this)).check(ViewAssertions.matches(ViewMatchers.hasFocus()))
 
-val hasFocus: ViewAssertion = ViewAssertions.matches(hasFocus())
+val hasFocus: Matcher<View> = hasFocus()
 
 /**
  *  Extension functions for [ViewMatchers.isClickable()] for [ViewAssertion.matches()]
@@ -78,7 +77,7 @@ fun ViewInteraction.isClickable(): ViewInteraction =
 fun Int.isClickable(): ViewInteraction =
     onView(withId(this)).check(ViewAssertions.matches(ViewMatchers.isClickable()))
 
-val isClickable: ViewAssertion = ViewAssertions.matches(isClickable())
+val isClickable: Matcher<View> = isClickable()
 
 /**
  *  Extension functions for [ViewMatchers.isChecked()] for [ViewAssertion.matches()]
@@ -92,21 +91,7 @@ fun ViewInteraction.isChecked(): ViewInteraction =
 fun Int.isChecked(): ViewInteraction =
     onView(withId(this)).check(ViewAssertions.matches(ViewMatchers.isChecked()))
 
-val isChecked: ViewAssertion = ViewAssertions.matches(isChecked())
-
-/**
- *  Extension functions for [ViewMatchers.isNotChecked()] for [ViewAssertion.matches()]
- */
-fun Matcher<View>.isNotChecked(): ViewInteraction =
-    onView(this).check(ViewAssertions.matches(ViewMatchers.isNotChecked()))
-
-fun ViewInteraction.isNotChecked(): ViewInteraction =
-    check(ViewAssertions.matches(ViewMatchers.isNotChecked()))
-
-fun Int.isNotChecked(): ViewInteraction =
-    onView(withId(this)).check(ViewAssertions.matches(ViewMatchers.isNotChecked()))
-
-val isNotChecked: ViewAssertion = ViewAssertions.matches(isNotChecked())
+val isChecked: Matcher<View> = isChecked()
 
 /**
  *  Extension functions for [ViewMatchers.withEffectiveVisibility(Visibility)] for [ViewAssertion.matches()]
@@ -132,7 +117,7 @@ fun ViewInteraction.isSelected(): ViewInteraction =
 fun Int.isSelected(): ViewInteraction =
     onView(withId(this)).check(ViewAssertions.matches(ViewMatchers.isSelected()))
 
-val isSelected: ViewAssertion = ViewAssertions.matches(isSelected())
+val isSelected: Matcher<View> = isSelected()
 
 /**
  *  Extension functions for [ViewMatchers.isSelected()] for [ViewAssertion.doesNotExist()]

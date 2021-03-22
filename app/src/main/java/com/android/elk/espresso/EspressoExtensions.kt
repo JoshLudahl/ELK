@@ -22,14 +22,14 @@ import org.hamcrest.core.AllOf.allOf
 import org.hamcrest.core.IsNot.not
 
 enum class ResourceType {
-    ID, STRING
+    RESOURCE_ID, RESOURCE_STRING
 }
 
 val Int.resType: ResourceType
     get() {
         return when (targetContext.resources.getResourceTypeName(this)) {
-            "id" -> ResourceType.ID
-            "string" -> ResourceType.STRING
+            "id" -> ResourceType.RESOURCE_ID
+            "string" -> ResourceType.RESOURCE_STRING
             else -> throw NoSuchPropertyException("No matching property.")
         }
     }
@@ -64,37 +64,43 @@ infix fun ViewAction.into(viewInteraction: ViewInteraction) {
 /**
  * Assertions
  */
-infix fun Matcher<View>.verify(viewAssertion: ViewAssertion) {
-    onView(this).check(viewAssertion)
+infix fun Matcher<View>.verify(matcher: Matcher<View>) {
+    onView(this).check(ViewAssertions.matches(matcher))
 }
 
-infix fun ViewInteraction.verify(viewAssertion: ViewAssertion) {
-    this.check(viewAssertion)
+infix fun ViewInteraction.verify(matcher: Matcher<View>) {
+    this.check(ViewAssertions.matches(matcher))
 }
 
-infix fun Matcher<View>.verifyThat(viewAssertion: ViewAssertion) {
-    onView(this).check(viewAssertion)
+infix fun Matcher<View>.verifyThat(matcher: Matcher<View>) {
+    onView(this).check(ViewAssertions.matches(matcher))
 }
 
-infix fun ViewInteraction.verifyThat(viewAssertion: ViewAssertion) {
-    this.check(viewAssertion)
+infix fun ViewInteraction.verifyThat(matcher: Matcher<View>) {
+    this.check(ViewAssertions.matches(matcher))
 }
 
-infix fun Matcher<View>.confirm(viewAssertion: ViewAssertion) {
-    onView(this).check(viewAssertion)
+infix fun Matcher<View>.confirm(matcher: Matcher<View>) {
+    onView(this).check(ViewAssertions.matches(matcher))
 }
 
-infix fun ViewInteraction.confirm(viewAssertion: ViewAssertion) {
-    this.check(viewAssertion)
+infix fun ViewInteraction.confirm(matcher: Matcher<View>) {
+    this.check(ViewAssertions.matches(matcher))
 }
 
-infix fun Matcher<View>.confirmThat(viewAssertion: ViewAssertion) {
-    onView(this).check(viewAssertion)
+infix fun Matcher<View>.confirmThat(matcher: Matcher<View>) {
+    onView(this).check(ViewAssertions.matches(matcher))
 }
 
-infix fun ViewInteraction.confirmThat(viewAssertion: ViewAssertion) {
-    this.check(viewAssertion)
+infix fun ViewInteraction.confirmThat(matcher: Matcher<View>) {
+    this.check(ViewAssertions.matches(matcher))
 }
+
+/**
+ * Extension for reversing the matcher.
+ * Example, `isDisplayed().not()` changes `isDisplayed()` to `not displayed`, etc.
+ */
+fun Matcher<View>.not(): Matcher<View> = not(this)
 
 /**
  * Checks if many views are hidden
@@ -131,22 +137,20 @@ fun viewsAreDisplayed(vararg views: Matcher<View>) {
 /**
  * View matcher - matches a view of either string or id resource.
  *
- * @param id - id resource
+ * @param element - id resource
  *
  * @return Matcher<View>
  */
-fun view(@IdRes @StringRes id: Int): Matcher<View> = when (id.resType) {
-    ResourceType.ID -> withId(id)
-    ResourceType.STRING -> withText(id)
+fun <T> view(element: T): Matcher<View> = when (element) {
+    is Int -> when (element.resType) {
+        ResourceType.RESOURCE_ID -> withId(element)
+        ResourceType.RESOURCE_STRING -> withText(element)
+    }
+    is String -> withText(element)
+    else -> throw NoSuchElementException("No matching type.")
 }
 
-/**
- * View matcher - matches a view with text
- *
- * @param text
- * @return Matcher<View>
- */
-fun view(text: String): Matcher<View> = withText(text)
+
 
 /**
  * View Matcher - matches a view with a class
@@ -158,11 +162,11 @@ fun view(clazz: Class<out View>): Matcher<View> = ViewMatchers.isAssignableFrom(
 
 /**
  * Views Matcher - matches several compound views, shorthand for allOf(), but takes Matchers
- * @sample views(view(R.id.some_resource), view("A String"), withId(R.id.another_id))
+ * @sample view(view(R.id.some_resource), view("A String"), withId(R.id.another_id))
  * @param matchers takes a list of matchers
  * @return Matcher<View> object
  */
-fun views(vararg matchers: Matcher<View>): Matcher<View> = allOf(*matchers)
+fun view(vararg matchers: Matcher<View>): Matcher<View> = allOf(*matchers)
 
 /**
  * Checks a varable number of arguments of type Int that is a string from a string value
