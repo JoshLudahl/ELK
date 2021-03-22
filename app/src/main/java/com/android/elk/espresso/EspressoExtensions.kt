@@ -210,13 +210,18 @@ fun ViewInteraction.checkViewsAreHidden(@IdRes vararg viewIds: Int) {
 
 /**
  * Checks that a given toast is displayed
+ * Takes either a String resource or a String literal as a parameter
  *
- * @param message
+ * @param message of generic type
  */
 @SuppressLint("RestrictedApi")
-fun toastMatcher(message: String) {
+fun <T> toastMatcher(message: T) {
     val context = InstrumentationRegistry.getInstrumentation().context
-    onView(ViewMatchers.withText(message))
+    onView(when(message) {
+        is Int -> withText(message)
+        is String -> withText(message)
+        else -> throw NoSuchElementException("No such element.")
+    })
         .inRoot(
             withDecorView(not(Matchers.`is`(getActivity(context)?.window?.decorView)))
         ).check(

@@ -146,9 +146,10 @@ fun checkSomething() {
 Various RecyclerView extensions, still working to make them simpler to use.
 
 ### Checking Toasts is easy
-Simply call the toastMatcher function with the expected string:
+Simply call the toastMatcher function with the expected string or string resource:
 ```kotlin
 toastMatcher("My Message")
+toastMatcher(R.string.toast_message)
 ```
 
 ### Changing orientation is easy
