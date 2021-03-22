@@ -33,6 +33,20 @@ Basic assertions are human readable:
 view(R.id.id_resource) confirm isDisplayed
 ```
 
+Simple extension to check if something isn't in a state:
+```kotlin
+view(R.id.id_resource) confirm isDisplayed.not()
+```
+
+A simple replacement for onView(allOf(...)):
+```kotlin
+view(
+    view("Text to check"),
+    view(R.id.id_resource_to_check),
+    view(R.string.string_resource_to_check)
+)
+```
+
 ### Multiple ways to check views
 A simple, bulk check:
 ```kotlin

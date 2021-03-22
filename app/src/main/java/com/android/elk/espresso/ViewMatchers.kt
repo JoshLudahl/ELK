@@ -106,6 +106,6 @@ fun viewWithSpinnerText(matcher: Matcher<String>): ViewInteraction =
 /**
  *   Extensions for [USER PROPERTIES]: ViewMatcher.hasLinks()
  */
-fun hasLinks(): Matcher<View> = ViewMatchers.hasLinks()
+val hasLinks: Matcher<View> = ViewMatchers.hasLinks()
 
-fun viewHasLinks(): ViewInteraction = onView(ViewMatchers.hasLinks())
+val viewHasLinks: ViewInteraction = onView(ViewMatchers.hasLinks())
