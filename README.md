@@ -47,6 +47,21 @@ view(
 )
 ```
 
+`view` is a powerhouse replacement for `onView(withId(R.id.some_id))`, `onView(withText(R.string.some_text))`, `onView(withId("a string literal"))`
+or even `onView(allOf(...))`:
+```kotlin
+view("Text to check") //String Literal matcher
+view(R.id.id_resource_to_check) //Id resource matcher
+view(R.string.string_resource_to_check) //String resource matcher
+view(TextView::class.java) //Class matcher
+
+view(
+    view("Text to check"),
+    view(R.id.id_resource_to_check),
+    view(R.string.string_resource_to_check)
+) // simplification matcher for onView(allOf(...))
+```
+
 ### Multiple ways to check views
 A simple, bulk check:
 ```kotlin
