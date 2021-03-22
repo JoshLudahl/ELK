@@ -27,14 +27,14 @@ import org.hamcrest.TypeSafeMatcher
  *
  * @param enum takes an enum of type K which you want to check for the positive value
  * @param enumMap takes a mutable map of enum of the type T
- * @param assertion takes in a [ViewAssertion] type
+ * @param matcher takes in a [ViewAssertion] type
  */
-inline fun <reified K: Enum<K> , reified T: Enum<T>> onlyOneIsSelected(enum: K, enumMap: MutableMap<Enum<T>, Int>, assertion: ViewAssertion) {
-    view(enumMap[enumValues<T>()[enum.ordinal]] as Int) verify assertion
+inline fun <reified K: Enum<K> , reified T: Enum<T>> onlyOneIsSelected(enum: K, enumMap: MutableMap<Enum<T>, Int>, matcher: Matcher<View>) {
+    view(enumMap[enumValues<T>()[enum.ordinal]] as Int) verify matcher
     enumMap.remove(enum as Enum<*>)
 
     for (value in enumMap) {
-        onView(view(value.value)).check(matches(not(assertion)))
+        onView(view(value.value)).check(matches(not(matcher)))
         //view(value.value) verify isUnChecked
     }
 }
