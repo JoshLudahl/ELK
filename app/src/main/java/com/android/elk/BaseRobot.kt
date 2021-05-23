@@ -5,9 +5,19 @@ import com.android.elk.common.Then
 import com.android.elk.common.When
 import org.junit.Test
 
+// Generic
 inline fun <reified T: Any> screen(init: T.() -> Unit): T? = T::class.java.newInstance().apply { init() }
+
+// Action
 inline fun <reified T: Any> operation(init: T.() -> Unit): T? = T::class.java.newInstance().apply { init() }
+
+// Confirm
 inline fun <reified T: Any> verify(init: T.() -> Unit): T? = T::class.java.newInstance().apply { init() }
+
+// Espresso generic centric
+inline fun <reified T: Any> perform(init: T.() -> Unit): T? = T::class.java.newInstance().apply { init() }
+inline fun <reified T: Any> check(init: T.() -> Unit): T? = T::class.java.newInstance().apply { init() }
+
 
 class SampleTest {
 
