@@ -3,6 +3,9 @@
 ## Espresso Extension library written in Kotlin
 A simple extension library for Espresso with support for the page object design, or in this case, the Robot Pattern. This library is growing and more features to come.  There are a few ways to perform different actions and assertions as well as matching objects.
 
+#Note
+This library will not be maintained going forward. With Jetpack Compose, please see [CAT](https://github.com/JoshLudahl/CAT), Compose for Android Testing. Look, I just wanted to use CAT, it's okay.
+
 ### Get started
 To include the library, add the following to your app module build.gradle file:
 ```groovy
