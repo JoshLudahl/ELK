@@ -12,9 +12,9 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.platform.app.InstrumentationRegistry
+import com.google.android.material.internal.ContextUtils.getActivity
 import com.softklass.elk.common.stringValue
 import com.softklass.elk.common.targetContext
-import com.google.android.material.internal.ContextUtils.getActivity
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.core.AllOf.allOf
@@ -25,12 +25,14 @@ enum class ResourceType {
 }
 
 val Int.resType: ResourceType
-    get() {
-        return when (targetContext.resources.getResourceTypeName(this)) {
-            "id" -> ResourceType.RESOURCE_ID
-            "string" -> ResourceType.RESOURCE_STRING
-            else -> throw NoSuchPropertyException("No matching property.")
-        }
+    get() = when (
+        targetContext
+            .resources
+            .getResourceTypeName(this)
+    ) {
+        "id" -> ResourceType.RESOURCE_ID
+        "string" -> ResourceType.RESOURCE_STRING
+        else -> throw NoSuchPropertyException("No matching property for resource type (resType).")
     }
 
 /**
@@ -150,7 +152,6 @@ fun <T> view(element: T): Matcher<View> = when (element) {
 }
 
 
-
 /**
  * View Matcher - matches a view with a class
  *
@@ -216,11 +217,13 @@ fun ViewInteraction.checkViewsAreHidden(@IdRes vararg viewIds: Int) {
 @SuppressLint("RestrictedApi")
 fun <T> toastMatcher(message: T) {
     val context = InstrumentationRegistry.getInstrumentation().context
-    onView(when(message) {
-        is Int -> withText(message)
-        is String -> withText(message)
-        else -> throw NoSuchElementException("No such element.")
-    })
+    onView(
+        when (message) {
+            is Int -> withText(message)
+            is String -> withText(message)
+            else -> throw NoSuchElementException("No such element.")
+        }
+    )
         .inRoot(
             withDecorView(not(Matchers.`is`(getActivity(context)?.window?.decorView)))
         ).check(
