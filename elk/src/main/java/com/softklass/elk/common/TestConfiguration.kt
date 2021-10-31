@@ -66,4 +66,4 @@ fun Context.getJapaneseConfiguration() = getConfigurationResources(Locale.JAPANE
  */
 infix fun Context.stringValue(@StringRes id: Int) = getString(id)
 
-val device = UiDevice.getInstance(instrumentation)
+val device: UiDevice = UiDevice.getInstance(instrumentation)
