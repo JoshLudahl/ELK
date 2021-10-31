@@ -7,6 +7,7 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import androidx.annotation.StringRes
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import java.util.*
 
 /**
@@ -64,3 +65,5 @@ fun Context.getJapaneseConfiguration() = getConfigurationResources(Locale.JAPANE
  * Sugar syntax for getting a string value
  */
 infix fun Context.stringValue(@StringRes id: Int) = getString(id)
+
+val device = UiDevice.getInstance(instrumentation)
