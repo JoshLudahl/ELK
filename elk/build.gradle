@@ -7,7 +7,7 @@ plugins {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'com.github.joshLudahl'
+            groupId = 'com.github.JoshLudahl'
             artifactId = 'elk'
             version = '0.59.16'
         }
