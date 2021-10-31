@@ -1,7 +1,6 @@
 package com.android.elk.espresso
 
 import android.net.Uri
-import android.os.Build.VERSION_CODES.R
 import android.util.NoSuchPropertyException
 import android.view.View
 import androidx.annotation.StringRes
