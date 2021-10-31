@@ -6,8 +6,8 @@ import androidx.annotation.StringRes
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.matcher.ViewMatchers
-import com.android.elk.common.stringValue
-import com.android.elk.common.targetContext
+import com.softklass.elk.common.stringValue
+import com.softklass.elk.common.targetContext
 import org.hamcrest.Matcher
 
 /**

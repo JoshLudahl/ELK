@@ -12,8 +12,8 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.platform.app.InstrumentationRegistry
-import com.android.elk.common.stringValue
-import com.android.elk.common.targetContext
+import com.softklass.elk.common.stringValue
+import com.softklass.elk.common.targetContext
 import com.google.android.material.internal.ContextUtils.getActivity
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers

@@ -1,8 +1,18 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.softklass.elk'
+            artifactId = 'elk'
+            version = '0.59.12'
+        }
+    }
+}
 android {
     compileSdk 31
 

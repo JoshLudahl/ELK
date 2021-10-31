@@ -8,8 +8,8 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
-import com.android.elk.common.stringValue
-import com.android.elk.common.targetContext
+import com.softklass.elk.common.stringValue
+import com.softklass.elk.common.targetContext
 import org.hamcrest.Matcher
 
 /**
