@@ -9,7 +9,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId = 'com.softklass.elk'
             artifactId = 'elk'
-            version = '0.59.12'
+            version = '0.59.13'
         }
     }
 }
