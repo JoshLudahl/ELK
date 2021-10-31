@@ -38,7 +38,7 @@ fun toggleAirplaneMode(
         }
 
         // This could be different for devices. A function should be added for devices that have
-        // additional dialogs or other screens.
+        // additional dialogs or other screens. Most don't have other screens or dialogs.
 
         // Select the device back button once should return to the application
         device.pressBack()
