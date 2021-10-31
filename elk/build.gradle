@@ -7,9 +7,9 @@ plugins {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'com.softklass.elk'
+            groupId = 'com.github.joshludahl'
             artifactId = 'elk'
-            version = '0.59.13'
+            version = '0.59.14'
         }
     }
 }
