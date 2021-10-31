@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         minSdkVersion 22
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.1"
 
@@ -19,8 +19,6 @@ android {
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
     }
-
-
 
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
@@ -71,7 +69,6 @@ dependencies {
     api "androidx.test:rules:$androidx_test_version"
     api "androidx.test:runner:$androidx_test_version"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'androidx.test.ext:junit:1.1.2'
 
     api "androidx.test:orchestrator:$test_orchestrator_version"
 }
