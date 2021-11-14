@@ -9,7 +9,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId = 'com.github.JoshLudahl'
             artifactId = 'ELK'
-            version = '0.59.24'
+            version = '0.59.25'
         }
     }
 }
@@ -81,6 +81,4 @@ dependencies {
     api "androidx.test:rules:$androidx_test_version"
     api "androidx.test:runner:$androidx_test_version"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    api "androidx.test:orchestrator:$test_orchestrator_version"
 }
