@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.JoshLudahl'
-version = '0.59.27'
+version = '0.59.29'
 
 afterEvaluate {
     publishing {
@@ -13,9 +13,9 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.JoshLudahl'
+                groupId = 'com.github.joshludahl'
                 artifactId = 'ELK'
-                version = '0.59.27'
+                version = '0.59.29'
             }
         }
     }
