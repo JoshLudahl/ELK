@@ -4,12 +4,15 @@ plugins {
     id 'maven-publish'
 }
 
+group = 'com.github.JoshLudahl'
+version = '0.59.26'
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = 'com.github.JoshLudahl'
             artifactId = 'ELK'
-            version = '0.59.25'
+            version = '0.59.26'
         }
     }
 }
