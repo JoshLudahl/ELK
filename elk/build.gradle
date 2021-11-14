@@ -5,17 +5,22 @@ plugins {
 }
 
 group = 'com.github.JoshLudahl'
-version = '0.59.26'
+version = '0.59.27'
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId = 'com.github.JoshLudahl'
-            artifactId = 'ELK'
-            version = '0.59.26'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.JoshLudahl'
+                artifactId = 'ELK'
+                version = '0.59.27'
+            }
         }
     }
 }
+
 android {
     compileSdk 31
     buildToolsVersion '30.0.3'
