@@ -8,7 +8,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId = 'com.github.JoshLudahl'
             artifactId = 'ELK'
-            version = '0.59.19'
+            version = '0.59.21'
         }
     }
 }
