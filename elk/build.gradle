@@ -9,12 +9,13 @@ publishing {
         mavenJava(MavenPublication) {
             groupId = 'com.github.JoshLudahl'
             artifactId = 'ELK'
-            version = '0.59.23'
+            version = '0.59.24'
         }
     }
 }
 android {
     compileSdk 31
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         minSdk 23
@@ -43,7 +44,10 @@ android {
         dataBinding true
         viewBinding true
     }
-    buildToolsVersion '30.0.3'
+
+    android.packagingOptions {
+        exclude 'META-INF/*'
+    }
 }
 
 dependencies {
