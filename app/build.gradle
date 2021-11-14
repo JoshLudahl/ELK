@@ -42,6 +42,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    project(':elk')
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api "androidx.core:core-ktx:$androidx_core_ktx_version"
     api "androidx.appcompat:appcompat:$appcompat_version"
