@@ -52,7 +52,7 @@ android {
         dataBinding true
         viewBinding true
     }
-    namespace 'com.softklass.elk'
+    namespace 'com.elk'
 
     android.packagingOptions {
         exclude 'META-INF/*'
