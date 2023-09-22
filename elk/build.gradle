@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.JoshLudahl'
-version = '0.59.30'
+version = '0.59.31'
 
 afterEvaluate {
     publishing {
@@ -15,7 +15,7 @@ afterEvaluate {
 
                 groupId = 'com.github.joshludahl' as Publication
                 artifactId = 'ELK' as Publication
-                version = '0.59.30' as Publication
+                version = '0.59.31' as Publication
             }
         }
     }
