@@ -52,6 +52,7 @@ android {
         dataBinding true
         viewBinding true
     }
+    namespace 'com.softklass.elk'
 
     android.packagingOptions {
         exclude 'META-INF/*'
@@ -73,9 +74,6 @@ dependencies {
     api "org.junit.vintage:junit-vintage-engine:$junit5_version"
     api "org.junit.jupiter:junit-jupiter"
 
-    api "androidx.test:runner:$androidx_test_version"
-    api "androidx.test:rules:$androidx_test_version"
-
     // Espresso libraries
     api "androidx.test.espresso:espresso-accessibility:$espresso_version"
     api "androidx.test.espresso:espresso-contrib:$espresso_version"
@@ -86,7 +84,7 @@ dependencies {
     api "androidx.test.espresso:espresso-web:$espresso_version"
     api "androidx.test.espresso.idling:idling-concurrent:$espresso_version"
     api "androidx.test.uiautomator:uiautomator:$uiautomator_version"
-    api "androidx.test:rules:$androidx_test_version"
+    api "androidx.test:rules:1.5.0"
     api "androidx.test:runner:$androidx_test_version"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
