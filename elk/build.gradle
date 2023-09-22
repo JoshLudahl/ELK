@@ -82,7 +82,7 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.joshludahl'
-                artifactId = 'espresso-library-kotlin'
+                artifactId = 'elk'
                 version elkVersion
             }
 
@@ -90,7 +90,7 @@ afterEvaluate {
                 from components.debug
 
                 groupId = 'com.github.joshludahl'
-                artifactId = 'espresso-library-kotlin'
+                artifactId = 'elk'
                 version elkVersion
             }
         }
