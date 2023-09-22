@@ -3,23 +3,9 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
-
+def elkVersion = '0.59.34'
 group = 'com.github.JoshLudahl'
-version = '0.59.33'
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-
-                groupId = 'com.github.joshludahl' as Publication
-                artifactId = 'ELK' as Publication
-                version = '0.59.33' as Publication
-            }
-        }
-    }
-}
+version elkVersion
 
 android {
     def target = 34
@@ -87,4 +73,26 @@ dependencies {
     api "androidx.test:rules:1.5.0"
     api "androidx.test:runner:$androidx_test_version"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.joshludahl'
+                artifactId = 'espresso-library-kotlin'
+                version elkVersion
+            }
+
+            debug (MavenPublication) {
+                from components.debug
+
+                groupId = 'com.github.joshludahl'
+                artifactId = 'espresso-library-kotlin'
+                version elkVersion
+            }
+        }
+    }
 }
