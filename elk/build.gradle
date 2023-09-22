@@ -13,21 +13,21 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.joshludahl'
-                artifactId = 'ELK'
-                version = '0.59.29'
+                groupId = 'com.github.joshludahl' as Publication
+                artifactId = 'ELK' as Publication
+                version = '0.59.29' as Publication
             }
         }
     }
 }
 
 android {
-    compileSdk 31
-    buildToolsVersion '30.0.3'
+    def target = 34
+    compileSdk target
 
     defaultConfig {
         minSdk 23
-        targetSdk 31
+        targetSdk target
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -40,12 +40,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '17'
     }
 
     buildFeatures {
@@ -69,7 +69,7 @@ dependencies {
     // JUnit
     api "junit:junit:$junit4_version"
     api "androidx.test.ext:junit:$test_junit_version"
-    api "org.junit:junit-bom:$junit5_version"
+    api platform("org.junit:junit-bom:$junit5_version")
     api "org.junit.vintage:junit-vintage-engine:$junit5_version"
     api "org.junit.jupiter:junit-jupiter"
 

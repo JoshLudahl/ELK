@@ -2,23 +2,22 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "30.0.3"
-
+    def target = 34
+    compileSdk target
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 31
-        versionCode 1
-        versionName "1.1"
+        targetSdkVersion target
+        versionCode 2
+        versionName "1.2"
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '17'
     }
 
     buildTypes {
