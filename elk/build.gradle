@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
+
 def elkVersion = '0.59.34'
 group = 'com.github.JoshLudahl'
 version elkVersion
@@ -81,16 +82,8 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.joshludahl'
-                artifactId = 'elk'
-                version elkVersion
-            }
-
-            debug (MavenPublication) {
-                from components.debug
-
-                groupId = 'com.github.joshludahl'
-                artifactId = 'elk'
+                groupId = group
+                artifactId = 'espresso-library-kotlin'
                 version elkVersion
             }
         }
