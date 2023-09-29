@@ -75,7 +75,7 @@ viewsAreDisplayed(
 )
 ```
 
-### Extensions utilize both ViewInteractions, Matchers, and some sugar syntax utilizing Kotlins infix notation
+### Extensions utilize both ViewInteractions, Matchers, and some sugar syntax utilizing Kotlin's infix notation
 For example ViewMatchers.isDisplayed() can be used as part of a ViewInteraction, Matcher, or as part of an assertion:
 ```kotlin
 view(id) check isDisplayed
@@ -101,7 +101,7 @@ fun checker() {
 Which checks the provided mode against the system mode and will return true if they match.
 
 ### Annotations out of the box for Gherkin support and code separation
-Gherkin useage:
+Gherkin usage:
 ```kotlin
 fun simpleCheck() {
     @Given("I am on the home page")
@@ -116,19 +116,19 @@ Separate Production, Development, and Local tests:
 @Development
 @Test
 fun checkSomething() {
-...
+//...
 }
 
 @Production
 @Test
 fun checkSomething() {
-...
+//...
 }
 
 @Local
 @Test
 fun checkSomething() {
-...
+//...
 }
 ```
 Then just use a runner or command argument to exclude the desired tests:
@@ -141,7 +141,7 @@ A generic TestId annotation which takes in a vararg integer:
 @Test
 @TestId(12345) // could take in zero or many integers
 fun checkSomething() { 
-...
+//...
 }
 ```
 
@@ -225,4 +225,4 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
