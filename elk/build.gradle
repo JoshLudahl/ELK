@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-def elkVersion = '0.59.36'
+def elkVersion = '0.60.01'
 group = 'com.github.JoshLudahl'
 version elkVersion
 
