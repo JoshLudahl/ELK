@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-def elkVersion = '0.59.35'
+def elkVersion = '0.59.36'
 group = 'com.github.JoshLudahl'
 version elkVersion
 
@@ -83,7 +83,7 @@ afterEvaluate {
                 from components.release
 
                 groupId = group
-                artifactId = 'espresso-library-kotlin'
+                artifactId = 'ELK'
                 version elkVersion
             }
         }
