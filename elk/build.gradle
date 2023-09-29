@@ -5,7 +5,7 @@ plugins {
 }
 
 def elkVersion = '0.60.01'
-group = 'com.github.JoshLudahl'
+group = 'com.softklass'
 version elkVersion
 
 android {
