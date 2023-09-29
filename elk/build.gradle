@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-def elkVersion = '0.60.02'
+def elkVersion = '0.60.03'
 version elkVersion
 
 android {
@@ -32,6 +32,11 @@ android {
 
     kotlinOptions {
         jvmTarget = '17'
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
     }
 
     namespace 'com.softklass'
