@@ -82,7 +82,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.softklass'
+                groupId = 'com.github.JoshLudahl'
                 artifactId = 'ELK'
                 version elkVersion
             }
