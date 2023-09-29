@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/JoshLudahl/ELK.svg)](https://jitpack.io/#JoshLudahl/ELK) [![Android CI](https://github.com/JoshLudahl/ELK/actions/workflows/android.yml/badge.svg)](https://github.com/JoshLudahl/ELK/actions/workflows/android.yml)
+[![](https://jitpack.io/v/JoshLudahl/ELK.svg)](https://jitpack.io/#JoshLudahl/ELK){:target="_blank"} [![Android CI](https://github.com/JoshLudahl/ELK/actions/workflows/android.yml/badge.svg)](https://github.com/JoshLudahl/ELK/actions/workflows/android.yml){:target="_blank"}
 # ELK
 ## Espresso Extension library written in Kotlin
 A simple extension library for Espresso with support for the page object design, or in this case, the Robot Pattern. This library is growing and more features to come.  There are a few ways to perform different actions and assertions as well as matching objects.
