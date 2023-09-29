@@ -1,8 +1,8 @@
-package com.android.elk
+package com.softklass.elk
 
-import com.android.elk.common.Given
-import com.android.elk.common.Then
-import com.android.elk.common.When
+import com.softklass.elk.common.Given
+import com.softklass.elk.common.Then
+import com.softklass.elk.common.When
 import org.junit.Test
 
 // Generic
@@ -34,14 +34,14 @@ class SampleTest {
 
         @Given("I am on the main screen")
         @When("I do simpleFunction")
-        operation<SampleObject> {
-            sampleFunction()
-        }
+        (operation<SampleObject> {
+        sampleFunction()
+    })
 
         @Then("the simpleFunction is displayed")
-        verify<SampleObject> {
-            sampleFunction()
-        }
+        (verify<SampleObject> {
+        sampleFunction()
+    })
     }
 }
 

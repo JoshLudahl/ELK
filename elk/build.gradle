@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-def elkVersion = '0.60.03'
+def elkVersion = '0.60.04'
 version elkVersion
 
 android {

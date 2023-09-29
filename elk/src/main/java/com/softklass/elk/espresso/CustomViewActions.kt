@@ -1,4 +1,4 @@
-package com.android.elk.espresso
+package com.softklass.elk.espresso
 
 import android.view.View
 import androidx.test.espresso.PerformException
@@ -7,6 +7,7 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.espresso.util.HumanReadables
 import androidx.test.espresso.util.TreeIterables
+import com.softklass.elk.espresso.withId
 import org.hamcrest.Matcher
 
 import java.util.concurrent.TimeoutException
